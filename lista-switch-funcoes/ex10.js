@@ -28,7 +28,7 @@ function operacao(op) {
             caixa.registrarDespesa(valor);
             caixa.historico.push('saida');
             return 0;
-        case "s":
+        case 's':
             return 1;
     }
 }
@@ -37,4 +37,12 @@ while (true) {
     let op = prompt('Digite "V" para venda, "D" para despesa e "S" para sair: ')
         .trim()
         .toLowerCase();
+    let result = operacao(op);
+    if (result) {
+        break;
+    }
 }
+
+console.log(caixa.historico.lenght);
+
+console.log(caixa);

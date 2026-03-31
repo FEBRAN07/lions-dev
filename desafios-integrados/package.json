@@ -1,15 +1,16 @@
 {
-  "name": "lista-switch-funcoes",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "name": "desafios-integrados",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "ex1.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "prompt-sync": "^4.2.0"
-  }
-} 
+  "license": "ISC"
+}

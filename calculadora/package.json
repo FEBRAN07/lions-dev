@@ -1,5 +1,5 @@
 {
-  "name": "lista-switch-funcoes",
+  "name": "calculadora",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,4 +12,4 @@
   "dependencies": {
     "prompt-sync": "^4.2.0"
   }
-} 
+}
