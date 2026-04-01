@@ -10,59 +10,59 @@ function menu() {
     return parseInt(prompt('Digite a operacao: ').trim());
 }
 
-function adicao(resultado) {
+function adicao() {
     while (true) {
-        let n2 = parseFloat(
-            prompt('Digite o numero a ser somado ao resultado: ').trim()
-        );
+        let n1 = parseFloat(prompt('Digite o primeiro numero: ').trim());
+        let n2 = parseFloat(prompt('Digite o numero a ser somado: ').trim());
 
-        if (!isNaN(n2)) {
-            return resultado + n2;
+        if (!isNaN(n1) && !isNaN(n2)) {
+            return n1 + n2;
         } else {
             console.log('Por favor, digite dois numeros');
         }
     }
 }
 
-function subtracao(resultado) {
+function subtracao() {
     while (true) {
-        let n2 = parseFloat(
-            prompt('Digite o numero a ser subtraido do resultado: ').trim()
-        );
+        let n1 = parseFloat(prompt('Digite o primeiro numero: ').trim());
+        let n2 = parseFloat(prompt('Digite o numero a ser subtraido: ').trim());
 
-        if (!isNaN(n2)) {
-            return resultado - n2;
+        if (!isNaN(n1) && !isNaN(n2)) {
+            return n1 - n2;
         } else {
             console.log('Por favor, digite dois numeros');
         }
     }
 }
 
-function multiplicacao(resultado) {
+function multiplicacao() {
     while (true) {
+        let n1 = parseFloat(prompt('Digite o primeiro numero: ').trim());
         let n2 = parseFloat(
-            prompt('Digite o numero para multiplicar o resultado: ').trim()
+            prompt('Digite o numero pelo qual sera multiplicado: ').trim()
         );
 
-        if (!isNaN(n2)) {
-            return resultado * n2;
+        if (!isNaN(n1) && !isNaN(n2)) {
+            return n1 * n2;
         } else {
             console.log('Por favor, digite dois numeros');
         }
     }
 }
 
-function divisao(resultado) {
+function divisao() {
     while (true) {
+        let n1 = parseFloat(prompt('Digite o primeiro numero: ').trim());
         let n2 = parseFloat(
-            prompt('Digite o numero para dividir o resultado: ').trim()
+            prompt('Digite numero pelo qual sera dividido: ').trim()
         );
 
-        if (!isNaN(n2)) {
+        if (!isNaN(n1) && !isNaN(n2)) {
             if (n2 === 0) {
                 console.log('Nao e possivel dividir por 0');
             } else {
-                return resultado / n2;
+                return n1 / n2;
             }
         } else {
             console.log('Por favor, digite dois numeros');
@@ -70,14 +70,15 @@ function divisao(resultado) {
     }
 }
 
-function porcentagem(resultado) {
+function porcentagem() {
     while (true) {
+        let n1 = parseFloat(prompt('Digite o primeiro numero: ').trim());
         let n2 = parseFloat(
-            prompt('Digite a porcentagem do resultado: ').trim()
+            prompt('Digite a porcentagem do primeiro: ').trim()
         );
 
-        if (!isNaN(n2)) {
-            return resultado * (n2 / 100);
+        if (!isNaN(n1) && !isNaN(n2)) {
+            return n1 * (n2 / 100);
         } else {
             console.log('Por favor, digite dois numeros');
         }
@@ -87,20 +88,15 @@ function porcentagem(resultado) {
 function operacoes(op) {
     switch (op) {
         case 1:
-            resultado = adicao(resultado);
-            return 'sucesso';
+            return adicao();
         case 2:
-            resultado = subtracao(resultado);
-            return 'sucesso';
+            return subtracao();
         case 3:
-            resultado = multiplicacao(resultado);
-            return 'sucesso';
+            return multiplicacao();
         case 4:
-            resultado = divisao(resultado);
-            return 'sucesso';
+            return divisao();
         case 5:
-            resultado = porcentagem(resultado);
-            return 'sucesso';
+            return porcentagem();
         case 6:
             return 'sair';
         default:
@@ -108,18 +104,16 @@ function operacoes(op) {
     }
 }
 
-let resultado = 0;
-
 while (true) {
     let op = menu();
-    let resposta = operacoes(op);
+    let result = operacoes(op);
 
-    if (resposta === 'sair') {
+    if (result === 'sair') {
         console.log('Encerrando o programa...');
         break;
     }
-    if (resposta === 'sucesso') {
-        console.log(`Resultado: ${resultado.toFixed(2)}`);
+    if (result !== 'erro') {
+        console.log(`Resultado: ${result.toFixed(2)}`);
     } else {
         console.log('Por favor, digite uma operacao valida');
     }
